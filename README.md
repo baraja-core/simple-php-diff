@@ -55,15 +55,7 @@ $left = 'First text';
 $right = 'Second text';
 
 $simpleDiff = new \Baraja\DiffGenerator\SimpleDiff;
-$diff = $![image](https://user-images.githubusercontent.com/4738758/113039971-8eb1b700-9198-11eb-9960-544be342d9ff.png)
-![image](https://user-images.githubusercontent.com/4738758/113039973-8eb1b700-9198-11eb-895f-805ea0ec470e.png)
-![image](https://user-images.githubusercontent.com/4738758/113039976-8f4a4d80-9198-11eb-928a-4b5d2b4f4533.png)
-![image](https://user-images.githubusercontent.com/4738758/113039981-8fe2e400-9198-11eb-8d95-9bcd258fc81b.png)
-![image](https://user-images.githubusercontent.com/4738758/113039978-8f4a4d80-9198-11eb-96e7-695ade2fd592.png)
-![image](https://user-images.githubusercontent.com/4738758/113039983-8fe2e400-9198-11eb-8bcd-821aae346cb0.png)
-![image](https://user-images.githubusercontent.com/4738758/113039982-8fe2e400-9198-11eb-8c32-0fd1c57d97d8.png)
-![image](https://user-images.githubusercontent.com/4738758/113039987-92453e00-9198-11eb-8da0-3208d0fd6816.png)
-simpleDiff->compare($left, $right);
+$diff = $simpleDiff->compare($left, $right);
 
 echo $simpleDiff->renderDiff($diff);
 ```
