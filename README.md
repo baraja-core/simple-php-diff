@@ -32,8 +32,8 @@ $diff = (new \Baraja\DiffGenerator\SimpleDiff)->compare($left, $right);
 
 // simple render diff
 echo '<code><pre>'
-	. htmlspecialchars((string) $diff)
-	. '</pre></code>';
+     . htmlspecialchars((string) $diff)
+     . '</pre></code>';
 ```
 
 The `compare()` method returns a complete object `Diff` with the results of the comparison, from which you can get much more.
