@@ -8,6 +8,10 @@ Example
 
 ![Default theme](doc/simple-diff.png)
 
+Diff can be rendered to HTML (with native method `SimpleDiff::renderDiff($diff)`:
+
+![Default theme](doc/diff-to-html.png)
+
 Idea
 ----
 
