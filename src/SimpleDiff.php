@@ -46,6 +46,23 @@ final class SimpleDiff
 	}
 
 
+	public function renderDiff(Diff|string $diff): string
+	{
+		$return = [];
+		foreach (explode("\n", is_string($diff) ? $diff : $diff->getDiff()) as $line) {
+			if (($line[0] ?? '') === '+') {
+				$return[] = '<div style="background:#a2f19c">' . htmlspecialchars($line) . '</div>';
+			} elseif (($line[0] ?? '') === '-') {
+				$return[] = '<div style="background:#e7acac">' . htmlspecialchars($line) . '</div>';
+			} else {
+				$return[] = '<div>' . htmlspecialchars($line) . '</div>';
+			}
+		}
+
+		return '<pre class="code">' . implode("\n", $return) . '</pre>';
+	}
+
+
 	private function prettyRender(string $haystack): string
 	{
 		return str_replace(["\t", ' '], ['→→→→', '·'], $haystack);
