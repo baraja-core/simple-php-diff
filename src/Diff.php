@@ -8,7 +8,7 @@ namespace Baraja\DiffGenerator;
 final class Diff
 {
 	/**
-	 * @param int[] $changedLines
+	 * @param array<int, int> $changedLines
 	 */
 	public function __construct(
 		private string $original,
@@ -44,7 +44,7 @@ final class Diff
 
 
 	/**
-	 * @return int[]
+	 * @return array<int, int>
 	 */
 	public function getChangedLines(): array
 	{
