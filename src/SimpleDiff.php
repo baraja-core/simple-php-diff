@@ -22,7 +22,7 @@ final class SimpleDiff
 		$captureBuffer = [];
 
 		for ($i = 0; isset($from[$i]); $i++) {
-			$original = $from[$i] ?? '';
+			$original = $from[$i];
 			$target = $to[$i] ?? '';
 			$lineNumber = str_pad((string) ($i + 1), $padLength, ' ', STR_PAD_LEFT) . '| ';
 			if ($original === $target) {
