@@ -24,20 +24,20 @@ final class SimpleDiff
 		for ($i = 0; isset($from[$i]); $i++) {
 			$original = $from[$i];
 			$target = $to[$i] ?? '';
-			$lineNumber = str_pad((string) ($i + 1), $padLength, ' ', STR_PAD_LEFT) . '| ';
+			$lineNumber = sprintf('%s| ', str_pad((string) ($i + 1), $padLength, ' ', STR_PAD_LEFT));
 			if ($original === $target) {
 				if ($captureBuffer !== []) {
-					foreach ($captureBuffer as $captureType => $captureLines) {
+					foreach ($captureBuffer as $captureLines) {
 						foreach ($captureLines as $captureLine) {
 							$return[] = $captureLine;
 						}
 					}
 					$captureBuffer = [];
 				}
-				$return[] = '  ' . $lineNumber . $original;
+				$return[] = sprintf('  %d%s', $lineNumber, $original);
 			} else {
-				$captureBuffer['-'][] = '- ' . $lineNumber . $this->prettyRender($original);
-				$captureBuffer['+'][] = '+ ' . $lineNumber . $this->prettyRender($target);
+				$captureBuffer['-'][] = sprintf('- %d%s', $lineNumber, $this->prettyRender($original));
+				$captureBuffer['+'][] = sprintf('+ %d%s', $lineNumber, $this->prettyRender($target));
 				$changedLines[] = $i + 1;
 			}
 		}
@@ -51,15 +51,15 @@ final class SimpleDiff
 		$return = [];
 		foreach (explode("\n", is_string($diff) ? $diff : $diff->getDiff()) as $line) {
 			if (($line[0] ?? '') === '+') {
-				$return[] = '<div style="background:#a2f19c">' . htmlspecialchars($line) . '</div>';
+				$return[] = sprintf('<div style="background:#a2f19c">%s</div>', htmlspecialchars($line));
 			} elseif (($line[0] ?? '') === '-') {
-				$return[] = '<div style="background:#e7acac">' . htmlspecialchars($line) . '</div>';
+				$return[] = sprintf('<div style="background:#e7acac">%s</div>', htmlspecialchars($line));
 			} else {
-				$return[] = '<div>' . htmlspecialchars($line) . '</div>';
+				$return[] = sprintf('<div>%s</div>', htmlspecialchars($line));
 			}
 		}
 
-		return '<pre class="code">' . implode("\n", $return) . '</pre>';
+		return sprintf('<pre class="code">%s</pre>', implode("\n", $return));
 	}
 
 
