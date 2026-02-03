@@ -34,10 +34,10 @@ final class SimpleDiff
 					}
 					$captureBuffer = [];
 				}
-				$return[] = sprintf('  %d%s', $lineNumber, $original);
+				$return[] = sprintf('  %s%s', $lineNumber, $original);
 			} else {
-				$captureBuffer['-'][] = sprintf('- %d%s', $lineNumber, $this->prettyRender($original));
-				$captureBuffer['+'][] = sprintf('+ %d%s', $lineNumber, $this->prettyRender($target));
+				$captureBuffer['-'][] = sprintf('- %s%s', $lineNumber, $this->prettyRender($original));
+				$captureBuffer['+'][] = sprintf('+ %s%s', $lineNumber, $this->prettyRender($target));
 				$changedLines[] = $i + 1;
 			}
 		}
